@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Vite App 创建的项目将使用基于 Vite 的构建设置，并允许我们使用 Vue
+      的单文件组件 (SFC)。
+    </title>
+    <style>
+        body {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+        .item {
+            margin: 20px;
+        }
+    </style>
+
+    <script>
+        const body = document.getElementsByTagName("body");
+    </script>
+  </head>
+  <body>
+    <script type="module" src="/src/main.js"></script>
+    <jc-button content="测试1" type="primary" >测试</jc-button>
+    <jc-button content="测试2" type="primary" plain ></jc-button>
+    <jc-button content="测试3" type="primary" round ></jc-button>
+    <jc-button content="测试4" type="primary" circle ></jc-button>
+    <jc-button content="测试5" type="warning" disable ></jc-button>
+    <jc-button content="测试6" type="success" size="mini" ></jc-button>
+    <jc-button content="测试7" type="primary" icon="check" ></jc-button>
+    <jc-button content="测试8" type="primary" loading ></jc-button>
+    <jc-button content="测试9" type="primary" >
+        <jc-image src="upload" slot="icon">
+        </jc-image>
+    </jc-button>
+
+    <jc-button-group>
+        <jc-button content="测试1" type="primary" line>测试</jc-button>
+        <jc-button content="测试2" type="primary" line></jc-button>
+        <jc-button content="测试2" type="primary" flat></jc-button>
+    </jc-button-group>
+
+    <script>
+        document.body.childNodes.forEach(element => {
+            if (element.localName == 'jc-button') {
+                element.setAttribute('class','item');
+            }
+        });
+        const element = document.querySelectorAll('jc-button');
+        element.forEach(el => {
+            el.addEventListener('customClick', e=> {
+                console.log(e);
+            })
+        });
+    </script>
+  </body>
+</html>

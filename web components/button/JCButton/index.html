@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple word count web component</title>
+    <!-- 这个样式表要加到 shaow dom 里关联,对 web components 才生效 -->
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <style>
+        .example{
+            display: flex;
+            flex-flow: row wrap;
+            padding: 20px;
+        }
+        .iconStyle {
+            width: 25px;
+            height: 25px;
+            margin: 5px;
+        }
+        .testExample {
+            display: flex;
+            flex-flow: row nowrap;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.01);
+            background-color: white;
+        }
+        jc-button {
+            flex: 1 auto;
+        }
+    </style>
+  </head>
+  <body>
+    <h3>
+        type:
+    </h3>
+
+    <!-- <jc-button>
+        按钮1
+    </jc-button>
+
+    <div id="container">
+        <jc-button>
+            默认,哈哈(浏览器兼容问题)
+        </jc-button>
+    </div> -->
+
+    <div class="example">
+        <jc-button type="default" onclick="myEvent">
+            我是一个默认按钮
+        </jc-button>
+    
+        <jc-button type="text">
+            我是一个文本按钮
+        </jc-button>
+    
+        <jc-button type="primary">
+            我是一个主要按钮
+        </jc-button>
+    
+        <jc-button type="success">
+            我是一个成功按钮
+        </jc-button>
+    
+        <jc-button type="info">
+            我是一个信息按钮
+        </jc-button>
+    
+        <jc-button type="warning">
+            我是一个警告按钮
+        </jc-button>
+    
+        <jc-button type="danger">
+            我是一个危险按钮
+        </jc-button>
+    </div>
+
+    <h3>
+        type + plain:
+    </h3>
+    <div class="example">
+        <jc-button plain>
+            我是一个默认按钮
+        </jc-button>
+    
+        <jc-button type="primary" plain>
+            我是一个主要按钮
+        </jc-button>
+    
+        <jc-button type="success" plain>
+            我是一个成功按钮
+        </jc-button>
+    
+        <jc-button type="info" plain>
+            我是一个信息按钮
+        </jc-button>
+    
+        <jc-button type="warning" plain>
+            我是一个警告按钮
+        </jc-button>
+    
+        <jc-button type="danger" plain>
+            我是一个危险按钮
+        </jc-button>
+    </div>
+
+    <h3>
+        type + round:
+    </h3>
+    <div class="example">
+        <jc-button round>
+            我是一个默认按钮
+        </jc-button>
+    
+        <jc-button type="primary" round>
+            我是一个主要按钮
+        </jc-button>
+    
+        <jc-button type="success" round>
+            我是一个成功按钮
+        </jc-button>
+    
+        <jc-button type="info" round>
+            我是一个信息按钮
+        </jc-button>
+    
+        <jc-button type="warning" round>
+            我是一个警告按钮
+        </jc-button>
+    
+        <jc-button type="danger" round>
+            我是一个危险按钮
+        </jc-button>
+    </div>
+
+    <h3>
+        type + circle:
+    </h3>
+    <div class="example">
+        <jc-button circle>
+       
+        </jc-button>
+    
+        <jc-button type="primary" circle>
+            主要按钮
+        </jc-button>
+    
+        <jc-button type="success" circle>
+            成功按钮
+        </jc-button>
+    
+        <jc-button type="info" circle>
+            信息按钮
+        </jc-button>
+    
+        <jc-button type="warning" circle>
+            警告按钮
+        </jc-button>
+    
+        <jc-button type="danger" circle>
+            危险按钮
+        </jc-button>
+    </div>
+
+    <h3>
+        type + icon:
+    </h3>
+    <div class="example">
+        <jc-button icon="search">
+            搜索
+        </jc-button>
+    
+        <jc-button type="primary" icon="write">
+            编写
+        </jc-button>
+    
+        <jc-button type="success" icon="check">
+        </jc-button>
+    
+        <jc-button type="info" icon="message" circle>
+        </jc-button>
+    
+        <jc-button type="warning" icon="star" circle>
+        </jc-button>
+    
+        <jc-button type="danger" icon="delete" circle>
+            删除
+        </jc-button>
+    </div>
+
+    <h3>
+        type + disable:
+    </h3>
+
+    <div class="example">
+        <div class="example">
+            <jc-button type="default" disable>
+                我是一个默认按钮
+            </jc-button>
+        
+            <jc-button type="text" disable>
+                我是一个文本按钮
+            </jc-button>
+        
+            <jc-button type="primary" disable>
+                我是一个主要按钮
+            </jc-button>
+        
+            <jc-button type="success" disable>
+                我是一个成功按钮
+            </jc-button>
+        
+            <jc-button type="info" disable>
+                我是一个信息按钮
+            </jc-button>
+        
+            <jc-button type="warning" disable>
+                我是一个警告按钮
+            </jc-button>
+        
+            <jc-button type="danger" disable>
+                我是一个危险按钮
+            </jc-button>
+        </div>
+
+        <div class="example">
+            <jc-button type="default" disable plain>
+                我是一个默认按钮
+            </jc-button>
+        
+            <jc-button type="text" disable plain>
+                我是一个文本按钮
+            </jc-button>
+        
+            <jc-button type="primary" disable plain>
+                我是一个主要按钮
+            </jc-button>
+        
+            <jc-button type="success" disable plain>
+                我是一个成功按钮
+            </jc-button>
+        
+            <jc-button type="info" disable plain>
+                我是一个信息按钮
+            </jc-button>
+        
+            <jc-button type="warning" disable plain>
+                我是一个警告按钮
+            </jc-button>
+        
+            <jc-button type="danger" disable plain>
+                我是一个危险按钮
+            </jc-button>
+        </div>
+
+        <div class="example">
+            <jc-button type="primary">
+                上传
+                <img src="./images/upload.png" slot="icon" class="iconStyle"/>
+                <!-- 插槽的 样式,在html style 里才生效 -->
+            </jc-button>
+            <!-- <el-button type="primary">上传<i class="el-icon-upload el-icon--right"></i></el-button> 实现方式?  -->
+        </div>
+
+        <div class="example">
+            <jc-button type="primary" loading="true">
+                加载中
+            </jc-button>
+        </div>
+
+        <div class="example">
+            <jc-button type="danger" size="large">
+                我是一个大按钮
+            </jc-button>
+
+            <jc-button type="default">
+                我是一个默认按钮
+            </jc-button>
+        
+            <jc-button type="text" size="">
+                我是一个默认文本按钮
+            </jc-button>
+        
+            <jc-button type="primary" size="default">
+                我是一个默认按钮
+            </jc-button>
+        
+            <jc-button type="success" size="medium">
+                我是一个中等按钮
+            </jc-button>
+        
+            <jc-button type="info" size="small">
+                我是一个中小按钮
+            </jc-button>
+        
+            <jc-button type="warning" size="mini">
+                我是一个超小按钮
+            </jc-button>
+        </div>
+
+        <div class="example">
+            <jc-button type="danger" size="large" round>
+                我是一个大按钮
+            </jc-button>
+
+            <jc-button type="default" round>
+                我是一个默认按钮
+            </jc-button>
+        
+            <jc-button type="text" size="" round>
+                我是一个默认文本按钮
+            </jc-button>
+        
+            <jc-button type="primary" size="default" round>
+                我是一个默认按钮
+            </jc-button>
+        
+            <jc-button type="success" size="medium" round>
+                我是一个中等按钮
+            </jc-button>
+        
+            <jc-button type="info" size="small" round>
+                我是一个中小按钮
+            </jc-button>
+        
+            <jc-button type="warning" size="mini" round>
+                我是一个超小按钮
+            </jc-button>
+        </div>
+
+        <div class='testExample'>
+            <jc-button type="danger">
+                我是一个大按钮
+            </jc-button>
+
+            <jc-button type="default">
+                我是一个默认按钮
+            </jc-button>
+        
+            <jc-button type="primary">
+                我是一个默认文本按钮
+            </jc-button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        function myEvent() {
+            console.log('触发点击事件');
+        }
+        
+        const element = document.querySelectorAll('jc-button');
+        // 报错
+        // element.onclick = (value) => {
+        //     console.log(value);
+        // }
+        debugger
+        element.forEach(el => {
+            el.addEventListener('onCustomClick', e=> {
+                console.log(e);
+            })
+        });
+    </script>
+  </body>
+</html>

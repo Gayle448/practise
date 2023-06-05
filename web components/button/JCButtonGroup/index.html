@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple word count web component</title>
+  </head>
+  <body>
+    <jc-button-group >
+        <jc-button type="primary">
+            按钮1
+        </jc-button>
+        <jc-button type="primary">
+            按钮2
+        </jc-button>
+        <jc-button type="primary">
+            按钮3
+        </jc-button>
+    </jc-button-group>
+
+    <!-- 外部选择类名,内部定义 样式(2), (1)是类名作为属性名传过去 -->
+    <jc-button-group class="outWrapper">
+        <jc-button type="primary">
+            按钮1
+        </jc-button>
+        <jc-button type="primary">
+            按钮2
+        </jc-button>
+        <jc-button type="primary">
+            按钮3
+        </jc-button>
+    </jc-button-group>
+
+    <!-- 火狐浏览器兼容有问题 -->
+    <!-- <div id="container">
+        <jc-button-group >
+            <jc-button type="primary">
+                按钮1
+            </jc-button>
+            <jc-button type="primary">
+                按钮2
+            </jc-button>
+            <jc-button type="primary">
+                按钮3
+            </jc-button>
+        </jc-button-group>
+    </div> -->
+
+    <script src="../JCButton/main.js"></script>
+    <script src="main.js"></script>
+
+  </body>
+</html>
