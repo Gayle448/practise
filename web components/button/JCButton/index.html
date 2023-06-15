@@ -345,7 +345,8 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
+    <script src="main.ts"></script>
     <script>
         function myEvent() {
             console.log('触发点击事件');
@@ -356,7 +357,6 @@
         // element.onclick = (value) => {
         //     console.log(value);
         // }
-        debugger
         element.forEach(el => {
             el.addEventListener('onCustomClick', e=> {
                 console.log(e);

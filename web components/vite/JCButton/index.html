@@ -15,7 +15,8 @@
     </style>
   </head>
   <body>
-    <script type="module" src="./src/jcbutton.js"></script>
+    <!-- <script type="module" src="./src/jcbutton.js"></script> -->
+    <script type="module" src="./src/jcbutton.ts"></script>
     <h3>
         type:
     </h3>
@@ -340,13 +341,13 @@
         </jc-button>
     </div>
 
+    <a href="/web components/vite/JCButton/src/JCButtonGroup/index.html">按钮组</a>
 
     <script>
         // var colors = ['red','blue','yellow'];
         // 方式一: 无效
         function clickEvent(event) {
             console.log('传递事件1');
-            debugger
             console.log(event)
         }
         const element = document.querySelectorAll('jc-button');
@@ -358,7 +359,6 @@
             })
             // 方式三: 有效
             el.clickCallBack = (options) => {
-                debugger
                 console.log(options);
                 console.log('传递事件3');
             };

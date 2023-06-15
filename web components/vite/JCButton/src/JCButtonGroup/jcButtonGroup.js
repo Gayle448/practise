@@ -22,6 +22,9 @@ class JCButtonGroup extends LitElement {
     firstUpdated() {
     }
 
+    handleChange(e) {
+    }
+
     // 条件1
     // 组件的 Shadow DOM 结构已经创建，但其中的内容可能尚未被完全渲染。
     connectedCallback() {

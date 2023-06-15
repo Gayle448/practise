@@ -1,6 +1,7 @@
-// import {LitElement, html} from 'lit';
+import {LitElement, html, css} from 'lit';
+import {customElement, property} from 'lit/decorators.js';
 // import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
-import { LitElement, html, css, classMap, styleMap,nothing } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js'
+// import { LitElement, html, css, classMap, styleMap,nothing } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js'
 
 class JCButton extends LitElement {
     static properties = {

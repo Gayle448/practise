@@ -1,17 +1,9 @@
 import {LitElement, html, css} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-// import { html, LitElement, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
-
+import {customElement} from 'lit/decorators.js';
 
 // 按钮组
-class JCButtonGroup extends LitElement {
-    static properties = {
-        condition: {}
-    }
-    constructor() {
-        super()
-        this.condition = false
-    }
+@customElement('jc-button-group')
+export class JCButtonGroup extends LitElement {
     render() {
         return html`
             <div class="wrapper">
@@ -21,6 +13,9 @@ class JCButtonGroup extends LitElement {
     }
       
     firstUpdated() {
+    }
+
+    handleChange(e: Event) {
     }
 
     // 条件1
@@ -37,15 +32,18 @@ class JCButtonGroup extends LitElement {
         //   const buttonElement = button.querySelector('button'); //Uncaught TypeError: buttonElement is null
         //   const buttonElement = button.renderRoot.querySelector('button'); // OK 使用 renderRoot 属性可以访问 Shadow DOM 的根节点。
           const buttonShadow = button.shadowRoot;
-          const buttonElement = buttonShadow.querySelector('button'); 
-            // debugger
-            buttonElement.style.border = '1px solid rgba(255,255,255,0)';
-            buttonElement.style.borderRadius = '0px';
-            buttonElement.style.margin = '0px';
-            if (index === buttons.length - 1) {
-              buttonElement.style.borderRightColor = 'rgba(255,255,255,0)';
-            } else {
-              buttonElement.style.borderRightColor = 'rgba(255,255,255,1)';
+            if (buttonShadow != null) {
+                const buttonElement = buttonShadow.querySelector('button'); 
+                if (buttonElement != null) {
+                    buttonElement.style.border = '1px solid rgba(255,255,255,0)';
+                    buttonElement.style.borderRadius = '0px';
+                    buttonElement.style.margin = '0px';
+                    if (index === buttons.length - 1) {
+                      buttonElement.style.borderRightColor = 'rgba(255,255,255,0)';
+                    } else {
+                      buttonElement.style.borderRightColor = 'rgba(255,255,255,1)';
+                    }
+                }
             }
             index++;
           });
@@ -81,4 +79,8 @@ class JCButtonGroup extends LitElement {
         }
     `
 }
-customElements.define('jc-button-group',JCButtonGroup);
+declare global {
+    interface HTMLElementTagNameMap {
+      'jc-button-group': JCButtonGroup
+    }
+}
